@@ -7,9 +7,8 @@
 
 ## Github Action 
   - On a recurring schedule to run on the 28th of every month.
-    - `aws ec2 describe-client-vpn-endpoints`
-    - The output will be written to a json file with current VPN configuration information in this repo.
-
+    - `aws acm list-certificates --output json`
+    - The output will be written to a json file with currentlist of certificates.
 
 
 ## Current Setup
@@ -48,7 +47,7 @@ jobs:
       - name: Overwrite file
         uses: "DamianReeves/write-file-action@master"
         with:
-          path: Remote Access/VPN_Config.json
+          path: Lists/certificates.json
           write-mode: overwrite
           contents: |
             console.log('some contents')
