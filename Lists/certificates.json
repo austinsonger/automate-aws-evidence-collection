@@ -1,1 +1,34 @@
-echo
+{
+    "CertificateAuthorities": [
+        {
+            "Arn": "arn:aws:acm-pca:us-east-1:573008047449:certificate-authority/7956cec6-e632-4314-b411-61d714845e29",
+            "OwnerAccount": "573008047449",
+            "CreatedAt": "2023-04-13T18:00:15.580000+00:00",
+            "LastStateChangeAt": "2023-04-13T18:00:16.449000+00:00",
+            "Type": "ROOT",
+            "Status": "PENDING_CERTIFICATE",
+            "CertificateAuthorityConfiguration": {
+                "KeyAlgorithm": "RSA_2048",
+                "SigningAlgorithm": "SHA256WITHRSA",
+                "Subject": {
+                    "Country": "US",
+                    "Organization": "Songer",
+                    "OrganizationalUnit": "Security",
+                    "State": "Illinois",
+                    "CommonName": "Sec 1",
+                    "Locality": "Chicago"
+                }
+            },
+            "RevocationConfiguration": {
+                "CrlConfiguration": {
+                    "Enabled": false
+                },
+                "OcspConfiguration": {
+                    "Enabled": false
+                }
+            },
+            "KeyStorageSecurityStandard": "FIPS_140_2_LEVEL_3_OR_HIGHER",
+            "UsageMode": "GENERAL_PURPOSE"
+        }
+    ]
+}
