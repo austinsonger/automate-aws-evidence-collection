@@ -34,7 +34,7 @@ jobs:
           path: Lists/certificates.json
           write-mode: overwrite
           contents: |
-            console.log('some contents')
+            <PLACEHOLDER>
             
       - name: Commit & Push
         uses: Andro999b/push@v1.3
