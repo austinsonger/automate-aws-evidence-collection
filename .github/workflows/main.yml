@@ -45,7 +45,7 @@ jobs:
           path: Lists/certificates.json
           write-mode: overwrite
           contents: |
-            echo "{ACM_PCA_ID}={ACM_PCA_ID}" >> $GITHUB_OUTPUT    
+            echo ${{ steps.acm-pca-id.outputs.ACM_PCA_ID }}    
             
       - name: Commit & Push changes
         uses: actions-js/push@master
