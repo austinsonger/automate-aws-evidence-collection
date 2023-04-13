@@ -3,15 +3,6 @@
 > When you use this. The project should be private for obvious reasons.
 
 
-#### Use the following  AWS API reference
-- https://docs.aws.amazon.com/cli/latest/reference/acm-pca/list-certificate-authorities.html
-
-
-#### Github Action 
-  - On a recurring schedule to run on the 28th of every month.
-    - `acm-pca list-certificate-authorities --output json`
-    - The output will be written to a json file with current list of certificates.
-
 
 #### Evidence That will be collected:
 
