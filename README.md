@@ -41,7 +41,7 @@ jobs:
          arch: amd64    # allowed values: amd64, arm64
          rootdir: ""    # defaults to "PWD"
          workdir: ""    # defaults to "PWD/unfor19-awscli"
-      - run: aws ec2 describe-client-vpn-endpoints
+      - run: aws acm list-certificates --output json
         shell: bash
 
       - name: Overwrite file
