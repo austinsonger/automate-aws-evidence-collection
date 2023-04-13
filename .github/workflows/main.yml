@@ -146,7 +146,7 @@ jobs:
 #         output_file_name: 
 #         display_file_content: YES # 
 ################################################################
-      - name: Listings of access keys
+      - name: List of access keys
       - uses: GuillaumeFalourd/command-output-file-action@v1
         with:
          command_line: aws list-access-keys --output yaml
