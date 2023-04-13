@@ -36,7 +36,7 @@ jobs:
       - name: Get List of Certs
         run: |
           ACM_PCA_ID=$(aws acm-pca list-certificate-authorities --output json)
-          echo '::set-output name=ACM_PCA_ID::$ACM_PCA_ID'
+          echo "{ACM_PCA_ID}={ACM_PCA_ID}" >> $GITHUB_OUTPUT
         shell: bash 
         id: acm-pca-id
 
