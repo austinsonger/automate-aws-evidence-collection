@@ -8,7 +8,7 @@
 ## Github Action 
   - On a recurring schedule to run on the 28th of every month.
     - `aws acm list-certificates --output json`
-    - The output will be written to a json file with currentlist of certificates.
+    - The output will be written to a json file with current list of certificates.
 
 
 ## Current Setup
