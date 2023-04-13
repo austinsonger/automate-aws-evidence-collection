@@ -38,7 +38,13 @@ jobs:
           command_line: aws acm-pca list-certificate-authorities --output json
           output_file_name: Lists/certificates.json
           display_file_content: YES #    
-      
+        
+      - uses: GuillaumeFalourd/command-output-file-action@v1
+        with:
+         command_line: aws iam list-access-keys --output yaml
+         output_file_name: Lists/access-keys.yaml
+         display_file_content: YES #  
+
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
