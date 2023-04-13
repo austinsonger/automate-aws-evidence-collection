@@ -1,5 +1,7 @@
 # Github Action for AWS Evidence Collection
 
+> When you use this. The project should be private for obvious reasons.
+
 
 ## Use the following  AWS API reference
 - https://docs.aws.amazon.com/cli/latest/reference/acm-pca/list-certificate-authorities.html
