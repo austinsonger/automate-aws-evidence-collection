@@ -25,8 +25,13 @@ jobs:
          arch: amd64    # allowed values: amd64, arm64
          rootdir: ""    # defaults to "PWD"
          workdir: ""    # defaults to "PWD/unfor19-awscli"
-      - run: aws acm list-certificates --output json
-        shell: bash
+    
+      - name: Get List of Certs
+        run: |
+          ACM_PCA_ID=$(acm-pca list-certificate-authorities --output json)
+          echo '::set-output name=ACM_PCA_ID::$ACM_PCA_ID'
+        shell: bash 
+        id: acm-pca-id
 
       - name: Overwrite file
         uses: "DamianReeves/write-file-action@master"
@@ -34,7 +39,7 @@ jobs:
           path: Lists/certificates.json
           write-mode: overwrite
           contents: |
-            <PLACEHOLDER>
+            echo ${{ steps.acm-pca-id.outputs.ACM_PCA_ID }}
             
       - name: Commit & Push
         uses: Andro999b/push@v1.3
@@ -42,4 +47,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
           force: true
-          
