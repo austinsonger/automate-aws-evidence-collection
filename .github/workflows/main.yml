@@ -25,13 +25,13 @@ jobs:
          arch: amd64    # allowed values: amd64, arm64
          rootdir: ""    # defaults to "PWD"
          workdir: ""    # defaults to "PWD/unfor19-awscli"
-      - run: aws ec2 describe-client-vpn-endpoints
+      - run: aws acm list-certificates --output json
         shell: bash
 
       - name: Overwrite file
         uses: "DamianReeves/write-file-action@master"
         with:
-          path: Remote Access/VPN_Config.json
+          path: Lists/certificates.json
           write-mode: overwrite
           contents: |
             console.log('some contents')
@@ -42,5 +42,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
           force: true
-          
           
