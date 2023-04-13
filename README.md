@@ -49,14 +49,7 @@ jobs:
          arch: amd64    # allowed values: amd64, arm64
          rootdir: ""    # defaults to "PWD"
          workdir: ""    # defaults to "PWD/unfor19-awscli"
-    
-      - name: Get List of Certs
-        run: |
-          ACM_PCA_ID=$(aws acm-pca list-certificate-authorities --output json)
-          echo "{ACM_PCA_ID}={ACM_PCA_ID}" >> $GITHUB_OUTPUT
-        id: acm-pca-id
-
-            
+          
       - uses: GuillaumeFalourd/command-output-file-action@v1
         with:
           command_line: aws acm-pca list-certificate-authorities --output json
