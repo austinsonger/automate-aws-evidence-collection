@@ -4,15 +4,12 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
   schedule:
     # Runs "At 12:00 on day-of-month 28."
     - cron: '0 12 28 * *'
  
 jobs:
-  write-to-console:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -48,9 +45,7 @@ jobs:
           contents: |
             echo ${{ steps.acm-pca-id.outputs.ACM_PCA_ID }}
             
-      - name: Commit & Push
-        uses: Andro999b/push@v1.3
+      - name: Commit & Push changes
+        uses: actions-js/push@master
         with:
           github_token: ${{ secrets.PUSH_TOKEN }}
-          branch: main
-          force: true
