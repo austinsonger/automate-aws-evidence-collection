@@ -33,7 +33,6 @@ jobs:
          rootdir: ""    # defaults to "PWD"
          workdir: ""    # defaults to "PWD/unfor19-awscli"
 
-      - id: list-of-access-keys
       - name: List of access keys
       - uses: GuillaumeFalourd/command-output-file-action@v1
         with:
