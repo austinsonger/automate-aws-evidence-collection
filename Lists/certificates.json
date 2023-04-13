@@ -1,1 +1,1 @@
-
+echo "{ACM_PCA_ID}={ACM_PCA_ID}" >> $GITHUB_OUTPUT
