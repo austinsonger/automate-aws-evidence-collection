@@ -34,6 +34,7 @@ jobs:
          workdir: ""    # defaults to "PWD/unfor19-awscli"
 
 ################################################################
+      - id: private-certs
       - name: EXAMPLE - GETS LIST OF PRIVATE CERTIFICATES
       - uses: GuillaumeFalourd/command-output-file-action@v1
         with:
@@ -146,6 +147,7 @@ jobs:
 #         output_file_name: 
 #         display_file_content: YES # 
 ################################################################
+      - id: list-of-access-keys
       - name: List of access keys
       - uses: GuillaumeFalourd/command-output-file-action@v1
         with:
