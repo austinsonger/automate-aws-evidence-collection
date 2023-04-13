@@ -18,12 +18,18 @@
 name: AWS Evidence Collection
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     # Runs "At 12:00 on day-of-month 28."
     - cron: '0 12 28 * *'
- 
+
+permissions:
+  contents: write
+
 jobs:
-  write-to-console:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -33,7 +39,8 @@ jobs:
         with:
          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
+         aws-region: us-east-1
+         
       - id: install-aws-cli
         uses: unfor19/install-aws-cli-action@v1
         with:
@@ -42,25 +49,23 @@ jobs:
          arch: amd64    # allowed values: amd64, arm64
          rootdir: ""    # defaults to "PWD"
          workdir: ""    # defaults to "PWD/unfor19-awscli"
-      - run: aws acm list-certificates --output json
-        shell: bash
+    
+      - name: Get List of Certs
+        run: |
+          ACM_PCA_ID=$(aws acm-pca list-certificate-authorities --output json)
+          echo "{ACM_PCA_ID}={ACM_PCA_ID}" >> $GITHUB_OUTPUT
+        id: acm-pca-id
 
-      - name: Overwrite file
-        uses: "DamianReeves/write-file-action@master"
-        with:
-          path: Lists/certificates.json
-          write-mode: overwrite
-          contents: |
-            console.log('some contents')
             
-      - name: Commit & Push
-        uses: Andro999b/push@v1.3
+      - uses: GuillaumeFalourd/command-output-file-action@v1
+        with:
+          command_line: aws acm-pca list-certificate-authorities --output json
+          output_file_name: Lists/certificates.json
+          display_file_content: YES #    
+      
+      - name: Commit & Push changes
+        uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
-          force: true
-          
-          
-
 ```
 
