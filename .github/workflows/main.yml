@@ -39,14 +39,13 @@ jobs:
           echo "{ACM_PCA_ID}={ACM_PCA_ID}" >> $GITHUB_OUTPUT
         id: acm-pca-id
 
-      - name: Overwrite file
-        uses: "DamianReeves/write-file-action@master"
-        with:
-          path: Lists/certificates.json
-          write-mode: overwrite
-          contents: |
-            echo ${{ steps.acm-pca-id.outputs.ACM_PCA_ID }}    
             
+      - uses: GuillaumeFalourd/command-output-file-action@v1
+        with:
+          command_line: aws acm-pca list-certificate-authorities --output json
+          output_file_name: Lists/certificates.json
+          display_file_content: YES #    
+      
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
