@@ -104,7 +104,6 @@ jobs:
          github-token: ${{ secrets.GITHUB_TOKEN }}
          push-branch: 'main'
          force-add: 'true'
-         files: configurations/ lists/    
 
 #      - name: Commit & Push changes
 #        uses: actions-js/push@master
