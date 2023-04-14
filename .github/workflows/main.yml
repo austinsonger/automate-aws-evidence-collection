@@ -15,7 +15,9 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3
-
+        with:
+         path: main
+         
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -88,7 +90,6 @@ jobs:
         with:
          github-token: ${{ secrets.GITHUB_TOKEN }}
          push-branch: 'main'
-         commit-message: 'publish'
          force-add: 'true'
          files: configurations/ lists/    
 
