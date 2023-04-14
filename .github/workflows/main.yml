@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-         path: main
+         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
          
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
@@ -108,4 +108,5 @@ jobs:
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
+          force: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
