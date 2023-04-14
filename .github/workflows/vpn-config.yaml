@@ -35,7 +35,7 @@ jobs:
             
         
 # Direct remote access to production servers is restricted and performed through a dedicated jump server (bastion host) or VPN      
-      - uses: GuillaumeFalourd/command-output-file-action@v1
+      - uses: GuillaumeFalourd/command-output-file-action@v1.1
         with:
          command_line: aws ec2 describe-client-vpn-endpoints --output yaml
          output_file_name: Configurations/vpn-config.yaml
