@@ -34,7 +34,7 @@ jobs:
          workdir: ""    # defaults to "PWD/unfor19-awscli"            
         
 # Load balancers have only HTTPS/SSL listeners to enforce encryption in transit        
-      - uses: GuillaumeFalourd/command-output-file-action@v1
+      - uses: GuillaumeFalourd/command-output-file-action@v1.1
         with:
          command_line: aws elbv2 describe-ssl-policies --output yaml
          output_file_name: Configurations/load-bal-ssl-config.yaml
