@@ -1,6 +1,5 @@
 name: AWS Evidence Collection
 
-
 on:
   push:
     branches:
@@ -35,7 +34,7 @@ jobs:
          workdir: ""    # defaults to "PWD/unfor19-awscli"
 
 # LIST OF SERVER CERTIFICATES        
-      - uses: GuillaumeFalourd/command-output-file-action@v1
+      - uses: GuillaumeFalourd/command-output-file-action@main
         with:
          command_line: aws iam list-server-certificates --output yaml
          output_file_name: Lists/list-server-certificates.yaml
@@ -43,33 +42,32 @@ jobs:
  
 # TLS certificate of the production application proving confidential traffic.
 
-      - uses: GuillaumeFalourd/command-output-file-action@v1.1
+      - uses: GuillaumeFalourd/command-output-file-action@main
         with:
           command_line: aws acm list-certificates --output yaml
           output_file_name: Lists/tls-certificates.yaml
           display_file_content: YES # 
 
 # Load balancers have only HTTPS/SSL listeners to enforce encryption in transit        
-      - uses: GuillaumeFalourd/command-output-file-action@v1.1
+      - uses: GuillaumeFalourd/command-output-file-action@main
         with:
          command_line: aws elbv2 describe-ssl-policies --output yaml
          output_file_name: Configurations/load-bal-ssl-config.yaml
          display_file_content: YES #  
 
 # Load balancers have only HTTPS/SSL listeners to enforce encryption in transit        
-      - uses: GuillaumeFalourd/command-output-file-action@v1.1
+      - uses: GuillaumeFalourd/command-output-file-action@main
         with:
          command_line: aws elbv2 describe-ssl-policies --output yaml
          output_file_name: Configurations/load-bal-ssl-config.yaml
          display_file_content: YES #  
 
 # Direct remote access to production servers is restricted and performed through a dedicated jump server (bastion host) or VPN      
-      - uses: GuillaumeFalourd/command-output-file-action@v1.1
+      - uses: GuillaumeFalourd/command-output-file-action@main
         with:
          command_line: aws ec2 describe-client-vpn-endpoints --output yaml
          output_file_name: Configurations/vpn-config.yaml
          display_file_content: YES #  
-
 
       - name: Commit & Push changes
         uses: actions-js/push@master
