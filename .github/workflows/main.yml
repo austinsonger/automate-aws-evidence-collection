@@ -48,11 +48,11 @@ jobs:
 
 
 # LIST OF SERVER CERTIFICATES        
-      - uses: GuillaumeFalourd/command-output-file-action@main
-        with:
-         command_line: aws iam list-server-certificates --output yaml
-         output_file_name: /lists/list-server-certificates.yaml
-         display_file_content: YES #  
+#      - uses: GuillaumeFalourd/command-output-file-action@main
+#        with:
+#         command_line: aws iam list-server-certificates --output yaml
+#         output_file_name: /lists/list-server-certificates.yaml
+#         display_file_content: YES #  
  
 # TLS certificate of the production application proving confidential traffic.
 
