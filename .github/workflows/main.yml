@@ -35,8 +35,7 @@ jobs:
          workdir: ""    # defaults to "PWD/unfor19-awscli"
 
       
-      - run: mkdir {configurations,lists}
-        shell: bash
+
 
 # LIST OF SERVER CERTIFICATES        
       - uses: GuillaumeFalourd/command-output-file-action@main
