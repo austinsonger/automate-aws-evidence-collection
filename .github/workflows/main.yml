@@ -75,8 +75,16 @@ jobs:
          output_file_name: Configurations/describe-db-snapshots.yaml
          display_file_content: YES #  
 
-
-      - name: Commit & Push changes
-        uses: actions-js/push@master
+      - uses: github-actions-x/commit@v2.9
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+         github-token: ${{ secrets.GITHUB_TOKEN }}
+         push-branch: 'main'
+         commit-message: 'publish'
+         force-add: 'true'
+       
+
+
+#      - name: Commit & Push changes
+#        uses: actions-js/push@master
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
