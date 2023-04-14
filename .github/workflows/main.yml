@@ -35,7 +35,7 @@ jobs:
       - uses: GuillaumeFalourd/command-output-file-action@main
         with:
          command_line: aws iam list-server-certificates --output yaml
-         output_file_name: Lists/list-server-certificates.yaml
+         output_file_name: lists/list-server-certificates.yaml
          display_file_content: YES #  
  
 # TLS certificate of the production application proving confidential traffic.
@@ -43,45 +43,45 @@ jobs:
       - uses: GuillaumeFalourd/command-output-file-action@main
         with:
           command_line: aws acm list-certificates --output yaml
-          output_file_name: Lists/tls-certificates.yaml
-          display_file_content: YES # 
+          output_file_name: lists/tls-certificates.yaml
+          display_file_content: NO # 
 
 # Load balancers have only HTTPS/SSL listeners to enforce encryption in transit        
       - uses: GuillaumeFalourd/command-output-file-action@main
         with:
          command_line: aws elbv2 describe-ssl-policies --output yaml
-         output_file_name: Configurations/load-bal-ssl-config.yaml
-         display_file_content: YES #  
+         output_file_name: configurations/load-bal-ssl-config.yaml
+         display_file_content: NO #  
 
 # Load balancers have only HTTPS/SSL listeners to enforce encryption in transit        
       - uses: GuillaumeFalourd/command-output-file-action@main
         with:
          command_line: aws elbv2 describe-ssl-policies --output yaml
-         output_file_name: Configurations/load-bal-ssl-config.yaml
-         display_file_content: YES #  
+         output_file_name: configurations/load-bal-ssl-config.yaml
+         display_file_content: NO #  
 
 # Direct remote access to production servers is restricted and performed through a dedicated jump server (bastion host) or VPN      
       - uses: GuillaumeFalourd/command-output-file-action@main
         with:
          command_line: aws ec2 describe-client-vpn-endpoints --output yaml
-         output_file_name: Configurations/vpn-config.yaml
-         display_file_content: YES #  
+         output_file_name: configurations/vpn-config.yaml
+         display_file_content: NO #  
 
 ## Describe RDS Snapshots
 
       - uses: GuillaumeFalourd/command-output-file-action@main
         with:
          command_line: aws rds describe-db-snapshots --output yaml
-         output_file_name: Configurations/describe-db-snapshots.yaml
-         display_file_content: YES #  
+         output_file_name: configurations/describe-db-snapshots.yaml
+         display_file_content: NO #  
 
 ## Describe RDS Instances 
 
       - uses: GuillaumeFalourd/command-output-file-action@main
         with:
          command_line: aws rds describe-db-instances --output yaml
-         output_file_name: Configurations/describe-db-instances.yaml
-         display_file_content: YES #  
+         output_file_name: configurations/describe-db-instances.yaml
+         display_file_content: NO #  
                
       - uses: github-actions-x/commit@v2.9
         with:
