@@ -1,12 +1,10 @@
 name: AWS Evidence Collection
 
 on:
-  push:
-    branches:
-      - main
   schedule:
     # Runs "At 12:00 on day-of-month 28."
     - cron: '0 12 28 * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
