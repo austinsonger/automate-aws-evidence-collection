@@ -51,7 +51,7 @@ jobs:
       - uses: GuillaumeFalourd/command-output-file-action@main
         with:
          command_line: aws iam list-server-certificates --output yaml
-         output_file_name: lists/list-server-certificates.yaml
+         output_file_name: /lists/list-server-certificates.yaml
          display_file_content: YES #  
  
 # TLS certificate of the production application proving confidential traffic.
@@ -59,7 +59,7 @@ jobs:
       - uses: GuillaumeFalourd/command-output-file-action@main
         with:
           command_line: aws acm list-certificates --output yaml
-          output_file_name: lists/tls-certificates.yaml
+          output_file_name: /lists/tls-certificates.yaml
           display_file_content: NO # 
 
 # Load balancers have only HTTPS/SSL listeners to enforce encryption in transit        
