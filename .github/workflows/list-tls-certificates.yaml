@@ -36,7 +36,7 @@ jobs:
 ##
 # TLS certificate of the production application proving confidential traffic.
 ##
-      - uses: GuillaumeFalourd/command-output-file-action@v1
+      - uses: GuillaumeFalourd/command-output-file-action@v1.1
         with:
           command_line: aws acm list-certificates --output yaml
           output_file_name: Lists/tls-certificates.yaml
