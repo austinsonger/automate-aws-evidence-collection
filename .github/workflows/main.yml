@@ -43,6 +43,9 @@ jobs:
         uses: JesseTG/rm@v1.0.3
         with:
          path: /configurations
+      
+      - run: mkdir {configurations,lists}
+
 
 # LIST OF SERVER CERTIFICATES        
       - uses: GuillaumeFalourd/command-output-file-action@main
