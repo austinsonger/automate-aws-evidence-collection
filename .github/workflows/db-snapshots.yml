@@ -31,7 +31,7 @@ jobs:
          rootdir: ""    # defaults to "PWD"
          workdir: ""    # defaults to "PWD/unfor19-awscli"
 
-      - run: aws rds describe-db-snapshots --output yaml &> /Configuration/describe-db-snapshots.yaml || true
+      - run: aws rds describe-db-snapshots --output yaml > /Configuration/describe-db-snapshots.yaml
         shell: bash 
 
       - name: Commit & Push changes
