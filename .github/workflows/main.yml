@@ -67,7 +67,7 @@ jobs:
          output_file_name: Configurations/vpn-config.yaml
          display_file_content: YES #  
 
-## RDS Snapshots
+## Describe RDS Snapshots
 
       - uses: GuillaumeFalourd/command-output-file-action@main
         with:
@@ -75,6 +75,14 @@ jobs:
          output_file_name: Configurations/describe-db-snapshots.yaml
          display_file_content: YES #  
 
+## Describe RDS Instances 
+
+      - uses: GuillaumeFalourd/command-output-file-action@main
+        with:
+         command_line: aws rds describe-db-instances --output yaml
+         output_file_name: Configurations/describe-db-instances.yaml
+         display_file_content: YES #  
+               
       - uses: github-actions-x/commit@v2.9
         with:
          github-token: ${{ secrets.GITHUB_TOKEN }}
