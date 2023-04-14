@@ -34,6 +34,16 @@ jobs:
          rootdir: ""    # defaults to "PWD"
          workdir: ""    # defaults to "PWD/unfor19-awscli"
 
+      - name: Remove File
+        uses: JesseTG/rm@v1.0.3
+        with:
+         path: /lists
+
+      - name: Remove File
+        uses: JesseTG/rm@v1.0.3
+        with:
+         path: /configurations
+
 # LIST OF SERVER CERTIFICATES        
       - uses: GuillaumeFalourd/command-output-file-action@main
         with:
