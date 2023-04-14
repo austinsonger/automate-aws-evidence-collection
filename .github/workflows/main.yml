@@ -72,7 +72,7 @@ jobs:
       - uses: GuillaumeFalourd/command-output-file-action@main
         with:
          command_line: aws rds describe-db-snapshots --output yaml
-         output_file_name: Configurations/vpn-config.yaml
+         output_file_name: Configurations/describe-db-snapshots.yaml
          display_file_content: YES #  
 
 
