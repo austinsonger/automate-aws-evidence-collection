@@ -33,13 +33,9 @@ jobs:
          rootdir: ""    # defaults to "PWD"
          workdir: ""    # defaults to "PWD/unfor19-awscli"
 
-# Returns information about DB snapshots.        
-      - uses: GuillaumeFalourd/command-output-file-action@v1
-        with:
-         command_line: aws rds describe-db-snapshots --output yaml
-         output_file_name: Configuration/describe-db-snapshots.yaml
-         display_file_content: YES #  
 
+      - run: aws rds describe-db-snapshots --output yaml &> Configuration/describe-db-snapshots.yaml
+ 
 
       - name: Commit & Push changes
         uses: actions-js/push@master
