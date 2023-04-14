@@ -67,6 +67,15 @@ jobs:
          output_file_name: Configurations/vpn-config.yaml
          display_file_content: YES #  
 
+## RDS Snapshots
+
+      - uses: GuillaumeFalourd/command-output-file-action@main
+        with:
+         command_line: aws rds describe-db-snapshots --output yaml
+         output_file_name: Configurations/vpn-config.yaml
+         display_file_content: YES #  
+
+
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
