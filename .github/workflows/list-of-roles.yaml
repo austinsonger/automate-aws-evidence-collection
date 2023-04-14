@@ -35,7 +35,7 @@ jobs:
             
         
 # LIST OF ROLES        
-      - uses: GuillaumeFalourd/command-output-file-action@v1
+      - uses: GuillaumeFalourd/command-output-file-action@v1.1
         with:
          command_line: aws iam list-roles --output yaml
          output_file_name: Lists/list-roles.yaml
