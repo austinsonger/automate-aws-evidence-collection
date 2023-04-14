@@ -5,6 +5,7 @@
 
 
 
+
 | Frequency | Auditor  Evidence ID # | Evidence                                                     | Github Action                                         | Evidence Output                                    | SOC2 Mapping               | NIST Mapping |
 | --------- | ---------------------- | ------------------------------------------------------------ | ----------------------------------------------------- | -------------------------------------------------- | :------------------------- | ------------ |
 | 28 Days   |                        | Load balancers have only HTTPS/SSL listeners to enforce encryption in transit | [YAML](/.github/workflows/main.yml)   | [OUTPUT](/Configurations/load-bal-ssl-config.yaml) | CC6.1, CC6.3, CC6.6, CC6.7 |              |
