@@ -34,25 +34,16 @@ jobs:
          rootdir: ""    # defaults to "PWD"
          workdir: ""    # defaults to "PWD/unfor19-awscli"
 
-#      - name: Remove File
-#        uses: JesseTG/rm@v1.0.3
-#        with:
-#         path: /lists
-
-#      - name: Remove File
-#        uses: JesseTG/rm@v1.0.3
-#        with:
-#         path: /configurations
       
-#      - run: mkdir {configurations,lists}
-
+      - run: mkdir {configurations,lists}
+        shell: bash
 
 # LIST OF SERVER CERTIFICATES        
-#      - uses: GuillaumeFalourd/command-output-file-action@main
-#        with:
-#         command_line: aws iam list-server-certificates --output yaml
-#         output_file_name: /lists/list-server-certificates.yaml
-#         display_file_content: YES #  
+      - uses: GuillaumeFalourd/command-output-file-action@main
+        with:
+         command_line: aws iam list-server-certificates --output yaml
+         output_file_name: /lists/list-server-certificates.yaml
+         display_file_content: NO #  
  
 # TLS certificate of the production application proving confidential traffic.
 
