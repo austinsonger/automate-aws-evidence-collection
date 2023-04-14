@@ -89,8 +89,7 @@ jobs:
          push-branch: 'main'
          commit-message: 'publish'
          force-add: 'true'
-       
-
+         files: configurations/ lists/    
 
 #      - name: Commit & Push changes
 #        uses: actions-js/push@master
